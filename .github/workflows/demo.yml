@@ -2,8 +2,8 @@
  on: workflow_dispatch
  jobs:
    hello:
-    runs-on: ubuntu-latest
-    Steps:  
-      - name: hello step
-       run: echo "Hello World"
+     runs-on: ubuntu-latest
+     steps:
+       - name: hello step
+         run: echo "Hello World"
    
