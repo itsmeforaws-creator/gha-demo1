@@ -7,11 +7,13 @@
        - name: build step
          run: echo "Hello this a step in Build job"
    Test:
+     needs: Build
      runs-on: ubuntu-latest
      steps:
        - name: Test step
          run: echo " this is a step in test job"
    Deploy:
+     needs: Test
      runs-on: ubuntu-latest
      steps:
        - name: Deploy step
