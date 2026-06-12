@@ -3,7 +3,7 @@
  jobs:
    hello:
     runs-on: ubuntu-latest
-    steps:  
+    Steps:  
       - name: hello step
        run: echo "Hello World"
    
