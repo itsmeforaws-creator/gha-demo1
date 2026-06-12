@@ -3,6 +3,10 @@
    push: 
      branches: 
        - main
+      #-release/** It will trigger the workflow when there is a push to any branch that starts with "release/"
+   pull_request:
+      branches:
+        - main  
  jobs:
    Build:
      runs-on: ubuntu-latest
