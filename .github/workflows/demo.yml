@@ -8,19 +8,9 @@
      runs-on: ubuntu-latest
      steps:
        - name: build step
-         run: echo "Hello this a step in Build job"
-   Test:
-     needs: Build
-     runs-on: ubuntu-latest
-     steps:
-       - name: Test step
-         run: echo " this is a step in test job"
-   Deploy:
-     needs: Test
-     runs-on: ubuntu-latest
-     steps:
-       - name: Deploy step
-         run: echo "this is a step in deploy job"
+         run: |
+           echo "Hello it's step Build step, variable ${{vars.MY_NAME}} secrete ${{secrets.MY_PASSWORD}}"
+          
          
    
    
