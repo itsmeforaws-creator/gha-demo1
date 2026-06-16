@@ -1,0 +1,25 @@
+name: inputs demo
+on: 
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: choose different environments
+        required: true
+        default: Dev
+        type: choice
+        options:
+          - Dev
+          - Test
+          - Prod
+      artifact-tag:
+        description: To choose the artifact tag
+        required: true
+jobs:
+    demo-inputs:
+      runs-on: ubuntu-latest
+      steps:
+        - name: To print input variables
+          run: echo " env variable ${{ inputs.environment }}, artifact ${{ inputs.artifact-tag }}"
+          
+      
+      
