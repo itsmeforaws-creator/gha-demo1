@@ -6,7 +6,7 @@ jobs:
     steps:
       - name: if demo on main
         if: github.ref == 'ref/head/main'
-        run: echo this is true condition for main branch
+        run: echo "this is true condition for main branch"
 
 
         
