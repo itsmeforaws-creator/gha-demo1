@@ -4,13 +4,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-      variable1: ${{steps.step1.outputs.vesrion}}
+      variable1: ${{steps.step1.outputs.version}}
     steps:
       - name: step one
         id: step1
         run: echo "version = 0.01" >> $GITHUB_OUTPUT
-      - name: print two
-        run: echo "the build version is ${{steps.step1.outputs.vesrion}} "
   deploy:
     needs: build
     runs-on: ubuntu-latest
