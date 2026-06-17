@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: if demo on main
-        if: github.ref == 'refs/heads/main'
+        if: github.ref_name == 'main'
         run: echo "this is true condition for main branch"
 
 
