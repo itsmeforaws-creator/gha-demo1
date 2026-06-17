@@ -1,0 +1,9 @@
+name: Or condition
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: or condition in if
+        if: github.actor == 'Kishan' || github.actor == 'itsmeforaws-creator'
+        run: echo " thsi if condition is true for actor ${{github.actor}}"
