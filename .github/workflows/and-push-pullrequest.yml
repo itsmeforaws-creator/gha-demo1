@@ -13,7 +13,7 @@ jobs:
     if: github.event_name == 'pull_request' && github.event.pull_request.base.ref == 'main'
     steps:
       - name: build on pull request        
-        run: echo " this is build job on pull request to main"
+        run: echo " this is build job on pull request against main"
   depoly:
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref_name == 'main'
