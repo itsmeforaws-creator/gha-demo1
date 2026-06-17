@@ -1,0 +1,22 @@
+name: Build on pull and depoly on push
+on: 
+  pull_request:
+    types:
+      - opened
+      - synchronize
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: build on pull request
+        if: github.event_name == 'pull_request'
+        run: echo " this is build job on pull request"
+  depoly:
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy on push request to main
+        if: github.event_name == 'push' && github.ref_name == 'main'
+        run: echo " this deploy job on push request to main branch"
