@@ -1,0 +1,39 @@
+name: demo if special functions
+on: 
+    push:
+        branches:
+            - main
+            - develop
+            - feature/**
+jobs:
+    feature:
+        if: startswith(github.ref_name,'feature') && github.event_name == 'push'      
+        runs-on: ubuntu-latest
+        steps:
+            - name: static code analysis
+              run: echo "feature branch static code analysis"
+    develop:
+        if: github.ref_name == 'develop' && github.event_name == 'push'
+        runs-on: ubuntu-latest
+        steps:
+          - name: deploy to development environment
+            run: echo "deploying to development environment"
+    deploy:
+        if: github.ref_name == 'main' && github.event_name == 'push'
+        runs-on: ubuntu-latest
+        steps:
+          - name: deploy to production environment
+            run: echo "deploying to production environment"
+    success:
+        needs: [feature, develop, deploy]
+        if: always() && !failure()
+        runs-on: ubuntu-latest
+        steps:
+          - name: notify success
+            run: echo "workflow succeeded"
+    failure: 
+        if: failure()
+        runs-on: ubuntu-latest
+        steps:
+          - name: notify failure
+            run: echo "workflow failed"
